@@ -1,0 +1,22 @@
+name: hello-world
+on: push
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: my-step
+        run: |
+          echo "Running first job..."
+  my-job2:
+    needs: my-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: run-after-first
+        run: echo "This is job 2, it runs only if job 1 succeeds"
+  my-job3:
+    needs: my-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: third-job
+        run: echo "This is job 3, it also runs only if job 1 succeeds"
+          echo test, and deploy your project.
